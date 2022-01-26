@@ -30,3 +30,14 @@ my_sums['open'] = my_data[opn].sum(axis=1)/10
 my_sums['cluster'] = my_personality
 print('Sum of my question groups')
 print(my_sums)
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+my_sum = my_sums.drop('cluster', axis=1)
+plt.bar(my_sum.columns, my_sum.iloc[0,:], color='green', alpha=0.2)
+plt.plot(my_sum.columns, my_sum.iloc[0,:], color='red')
+plt.title('Cluster 2')
+plt.xticks(rotation=45)
+plt.ylim(0,4);
+plt.savefig('my_persona_cluster.png')
+
